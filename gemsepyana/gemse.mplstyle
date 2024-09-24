@@ -1,0 +1,47 @@
+#backend: Agg
+
+# colormap
+#image.cmap : viridis
+#image.cmap : hot
+image.cmap : inferno
+
+# figure
+figure.figsize : 10, 6
+font.size : 32
+figure.facecolor : white
+
+# axes
+axes.titlesize : 42
+axes.labelsize : 32
+axes.linewidth : 2
+axes.facecolor : white
+
+# ticks
+xtick.labelsize : 24
+ytick.labelsize : 24
+
+xtick.major.size : 16
+xtick.minor.size : 8
+ytick.major.size : 16
+ytick.minor.size : 8
+
+xtick.major.width : 2
+xtick.minor.width : 2
+ytick.major.width : 2
+ytick.minor.width : 2
+
+xtick.direction : in
+ytick.direction : in
+
+# markers
+lines.markersize : 12
+lines.markeredgewidth : 3
+errorbar.capsize : 8
+
+lines.linewidth : 3
+lines.linestyle : None
+lines.marker : None
+
+savefig.bbox : tight
+savefig.facecolor : white
+legend.fontsize : 16
