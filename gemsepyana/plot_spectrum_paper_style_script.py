@@ -63,9 +63,16 @@ def main(argv=sys.argv):
   al.sample_name = os.path.basename(outputfile).rstrip('_paperStylePlot.pdf')
 
   #al.t_live = int( os.path.basename(al.fn).split('.root')[0].split("_")[-1].rstrip('s') )
-  _pattern = r'\b\d{3,}s\b' # three or more digits followed by the letter s
+  _pattern = r'\d{3,}s' # three or more digits followed by the letter s
   _times = re.findall( _pattern, os.path.basename(al.fn) )
-  al.t_live = int(_times[-1].strip('s'))
+  try:
+    al.t_live = int(_times[-1].strip('s'))
+  except:
+    print ("")
+    print (f"ERROR. Regex can't match a duration in filename? fn={os.path.basename(al.fn)}, _times={_times}")
+    print (f"       Will set duration to t=1s for now. Rates won't make sense!!! Need to check!"
+    print ("")
+    al.t_live=1
   al.sample_name += f" ({al.t_live/(3600*24):.1f} days)"
 
   al.load_spectrum()
