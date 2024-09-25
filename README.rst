@@ -60,7 +60,7 @@ And e.g. display it::
     >>>           mode="expand",
     >>>           borderaxespad=0,
     >>>           frameon=False,
-    >>>           ncol=1)
+    >>>           ncol=2)
 
     >>> fig.show()
 
