@@ -152,7 +152,7 @@ def main(argv=sys.argv):
   outfn = f'{outputfile}_zooms.pdf'
 
   with PdfPages(outfn) as pdf:
-    plt.style.use('/home/sebastian/.pltstyle/gemse_small.mplstyle')
+    #plt.style.use('/home/sebastian/.pltstyle/gemse_small.mplstyle')
     for ir in range(len(xrange_full)-1):
       plt.figure(figsize=(12, 8))
       xrange = xrange_full[ir:ir+2]

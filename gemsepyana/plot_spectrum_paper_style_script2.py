@@ -154,7 +154,7 @@ def main(argv=sys.argv):
   al.rebin(nbins=1)
 
   with PdfPages(outfn) as pdf:
-    plt.style.use('/home/sebastian/.pltstyle/gemse_small.mplstyle')
+    #plt.style.use('/home/sebastian/.pltstyle/gemse_small.mplstyle') 
     for ir in range(len(xrange_full)-1):
       plt.figure(figsize=(16, 10))
       xrange = xrange_full[ir:ir+2]
