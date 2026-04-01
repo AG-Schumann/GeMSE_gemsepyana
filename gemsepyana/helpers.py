@@ -1,6 +1,7 @@
 ### Helper functions to do a simple analysis counting events in a fixed window
 ### - Sebastian Sep 2024
 
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
@@ -174,7 +175,8 @@ def simple_activities(gd, plot=False, _xw=3, isotopes=None, yscale='log', bg=Non
     actvs = np.array(actvs)
                 
     if plot:
-        plt.style.use('/home/sebastian/.pltstyle/gemse_small.mplstyle')
+        #plt.style.use('/home/sebastian/.pltstyle/gemse_small.mplstyle')
+        plt.style.use( os.path.join( os.path.dirname(__file__), 'gemse.mplstyle') )
         if show_summary:
           nplots = nplots + len(isotopes)
         fig, axs = plt.subplots(nplots,1,figsize=(16,nplots*8))
@@ -269,14 +271,17 @@ def simple_activities(gd, plot=False, _xw=3, isotopes=None, yscale='log', bg=Non
     return actvs, als # ,np.array(als)
 
 
-def plot_actvs(als, exclude=None, ignore_outliers=True, ax=None):
+def plot_actvs(als, exclude=None, ignore_outliers=True, axs=None):
     ## This function is used to plot the results of multiple gamma lines that belong to a single isotope in the same figure
     ## Input is the result of the simple_activities function 
     nisos = len(als.keys())
-    fig = None
-    if ax is None:
+    if axs is None:
       fig, axs = plt.subplots(nisos,1,figsize=(12,nisos*6))
-      plt.style.use('/home/sebastian/.pltstyle/gemse.mplstyle')
+    else:
+      fig = plt.gcf()
+      
+#    plt.style.use('/home/sebastian/.pltstyle/gemse.mplstyle')
+    plt.style.use( os.path.join( os.path.dirname(__file__), 'gemse.mplstyle') )
 
     for i, ke in enumerate( als.keys() ):
         if not fig is None:
